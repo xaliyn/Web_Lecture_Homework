@@ -3,41 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web-programming-1 Lecture Homework</title>
+    <title>HTML5 API Examples</title>
     <link rel="stylesheet" href="../style/style.css">
-    <script src="script.js" defer></script>
+    <script defer src="../js/html5.js"></script>
+
 </head>
 <body>
+
+
     <header>
         <h1>Web-programming-1 Lecture Homework</h1>
-    </header>
+      </header>
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="introduction.html">Introduction</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="table.html">Table</a></li>
-            <li><a href="html5.html" class="active">HTML5</a></li>
-            <li><a href="chart.html">Chart</a></li>
-            <li><a href="ajax.html">AJAX</a></li>
-            <li><a href="oojs.html">OOJS</a></li>
-            <li><a href="react.html">React</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="table.html">Table</a></li>
+        <li><a href="html5.html" class="active">HTML5</a></li>
+        <li><a href="chart.html">Chart</a></li>
+        <li><a href="ajax.html">AJAX</a></li>
+        <li><a href="oojs.html">OOJS</a></li>
+        <li><a href="react.html">React</a></li>
         </ul>
     </nav>
 
-    <aside>
-        <h2>Html5</h2>
-    </aside>
 
-    <div class="content">
-        <h2>Welcome to the Html5 Page</h2>
-        <p>This web page is for Web Programming Lecture homework.</p>
-        <p>As you can see, you are on the Html5 page.</p>
+  <div class="content">
+
+  <!-- Web Storage -->
+  <section>
+    <h2>1. Web Storage</h2>
+    <p id="localResult"></p>
+    <p>Refresh the page to increase number of hits.</p>
+    <button onclick="resetLocalStorage()">Reset Hits</button>
+  </section>
+  
+  <!-- Web Worker -->
+  <section>
+    <h2>2. Web Worker</h2>
+    <button onclick="bigLoop()">Big Loop</button>
+    <button onclick="sayHello()">Say Hello</button>
+  </section>
+  
+  <!-- SSE basic one without the use of php -->
+  <section>
+    <h2>3. Server-Sent Events (Simulated)</h2>
+    <button onclick="simulateSSE()">Simulate the SSE</button>
+    <div id="sseResult"></div>
+  </section>
+
+  <!-- Geolocation -->
+ 
+  <section>
+    <h2>4. Geolocation</h2>
+    <p>Click the button to get your coordinates.</p>
+    <button onclick="getLocation()">Get my Location</button>
+    <p id="geoResult"></p>
+  </section>
+  
+  <!-- Drag and Drop -->
+  <section>
+    <h2>5. Drag and Drop</h2>
+  
+    <div id="dropZone"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)"
+         style="width:150px;height:150px;border:1px solid gray;padding:10px;">
+      Drop here
+    </div>
+  
+    <img src="/images/try.png"
+         id="drag1"
+         draggable="true"
+         ondragstart="drag(event)"
+         width="100">
+  </section>
+  
+  <!-- Canvas -->
+    <h2>6. Canvas</h2>
+  <style>
+    #mycanvas{border:1px solid red;}
+    </style>
+    <body>
+        <canvas id="mycanvas" width="100" height="100"></canvas>
+        </body>
+
+  <!-- SVG -->
+    <section>
+        <h2>7. SVG</h2>
+        <!-- Circle -->
+        <svg width="100" height="100">
+          <circle cx="50" cy="50" r="40" fill="pink" stroke="purple" stroke-width="4" />
+        </svg>
+        <!-- Rectangle -->
+        <svg width="100" height="100">
+          <rect x="10" y="10" width="80" height="80" rx="20" ry="20"
+                fill="pink" stroke="purple" stroke-width="4" />
+        </svg>
+      </section>
+
     </div>
 
     <footer>
-        <p>Khaliun Tamir EU2XJ4, Enkhjee Gantulga CPY45Q</p>
+      <p>Khaliun Tamir EU2XJ4, Enkhjee Gantulga CPY45Q</p>
     </footer>
+  
+      
+  
 </body>
 </html>
