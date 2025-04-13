@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web-programming-1 Lecture Homework</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AJAX CRUD Homework</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <script defer src="../js/ajax.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Web-programming-1 Lecture Homework</h1>
-    </header>
 
+  <header><h1>Web-programming-1 Lecture Homework – AJAX Menu</h1></header>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -25,19 +23,54 @@
             <li><a href="react.html">React</a></li>
         </ul>
     </nav>
-
-    <aside>
-        <h2>Ajax</h2>
-    </aside>
-
-    <div class="content">
-        <h2>Welcome to the Ajax Page</h2>
-        <p>This web page is for Web Programming Lecture homework.</p>
-        <p>As you can see, you are on the Ajax page.</p>
-    </div>
-
+    <main class="content">
+        <!-- Read -->
+    <section>
+        <h2>Read Records</h2>
+        <input type="text" id="code" placeholder="Your code (e.g. ABCDEFxyz123)" />
+        <button onclick="readData()">Read Data</button>
+        <div id="readResult"></div>
+        <div id="heightStats"></div>
+      </section>
+  
+      <!-- Create -->
+      <section>
+        <h2>Create Record</h2>
+        <input type="text" id="createName" placeholder="Name (max 30)" />
+        <input type="text" id="createHeight" placeholder="Height" />
+        <input type="text" id="createWeight" placeholder="Weight" />
+        <input type="text" id="createCode" placeholder="Code (same as above)" />
+        <button onclick="createData()">Create</button>
+        <div id="createFeedback"></div>
+      </section>
+  
+      <!-- Update -->
+      <section>
+        <h2>Update Record</h2>
+        <input type="text" id="updateId" placeholder="ID to update" />
+        <button onclick="getDataForId()">Load</button><br><br>
+        <input type="text" id="updateName" placeholder="New Name" />
+        <input type="text" id="updateHeight" placeholder="New Height" />
+        <input type="text" id="updateWeight" placeholder="New Weight" />
+        <input type="text" id="updateCode" placeholder="Your Code" />
+        <button onclick="updateData()">Update</button>
+        <div id="updateFeedback"></div>
+      </section>
+  
+      <!-- Delete -->
+      <section>
+        <h2>Delete Record</h2>
+        <input type="text" id="deleteId" placeholder="ID to delete" />
+        <input type="text" id="deleteCode" placeholder="Your Code" />
+        <button onclick="deleteData()">Delete</button>
+        <div id="deleteFeedback"></div>
+      </section>
+  
+    </main>
+  
     <footer>
-        <p>Khaliun Tamir EU2XJ4, Enkhjee Gantulga CPY45Q</p>
+      <p>Khaliun Tamir EU2XJ4, Enkhjee Gantulga CPY45Q</p>
     </footer>
-</body>
-</html>
+  
+  </body>
+  </html>
