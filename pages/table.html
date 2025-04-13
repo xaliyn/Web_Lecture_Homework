@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-programming-1 Lecture Homework</title>
     <link rel="stylesheet" href="../style/style.css">
-    <script src="script.js" defer></script>
+    <script src="../js/main.js" defer></script>
 </head>
 <body>
     <header>
@@ -31,9 +31,35 @@
     </aside>
 
     <div class="content">
-        <h2>Welcome to the Table Page</h2>
-        <p>This web page is for Web Programming Lecture homework.</p>
-        <p>As you can see, you are on the Table page.</p>
+       
+            <h2>Table CRUD with Validation</h2>
+            <p>This web page is for Web Programming Lecture homework.</p>
+        
+            <!-- Form for adding entries -->
+            <form id="crudForm">
+                <input type="text" id="name" placeholder="Name" required minlength="2" maxlength="30">
+                <input type="number" id="age" placeholder="Age" min="1" max="120" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="city" placeholder="City" required>
+                <button type="submit">Add</button>
+            </form>
+        
+            <input type="text" id="searchInput" placeholder="Search..." />
+        
+            <table id="dataTable" border="1">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Name</th>
+                        <th onclick="sortTable(1)">Age</th>
+                        <th onclick="sortTable(2)">Email</th>
+                        <th onclick="sortTable(3)">City</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+     
+        
     </div>
 
     <footer>
