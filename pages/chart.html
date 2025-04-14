@@ -1,43 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web-programming-1 Lecture Homework</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChartJS Task</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Web-programming-1 Lecture Homework</h1>
-    </header>
+  <header>
+    <h1>Web-programming-1 Lecture Homework</h1>
+  </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="introduction.html">Introduction</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="table.html">Table</a></li>
-            <li><a href="html5.html">HTML5</a></li>
-            <li><a href="chart.html" class="active">Chart</a></li>
-            <li><a href="ajax.html">AJAX</a></li>
-            <li><a href="oojs.html">OOJS</a></li>
-            <li><a href="react.html">React</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="introduction.html">Introduction</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="html5.html">HTML5</a></li>
+      <li><a href="chart.html" class="active">Chart</a></li>
+      <li><a href="ajax.html">AJAX</a></li>
+      <li><a href="oojs.html">OOJS</a></li>
+      <li><a href="react.html">React</a></li>
+    </ul>
+  </nav>
 
-    <aside>
-        <h2>Chart</h2>
-    </aside>
+  <main class="content">
+    <h2>5x5 Table with ChartJS Line Chart</h2>
+    <p>Click any row to see the data in a chart below.</p>
 
-    <div class="content">
-        <h2>Welcome to the Chart Page</h2>
-        <p>This web page is for Web Programming Lecture homework.</p>
-        <p>As you can see, you are on the Chart page.</p>
-    </div>
+    <!-- Number Table -->
+    <table id="numberTable" border="1">
+        <thead>
+            <tr>
+              <th>City</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>City 1</td><td>12</td><td>14</td><td>15</td><td>13</td><td>16</td></tr>
+            <tr><td>City 2</td><td>18</td><td>19</td><td>21</td><td>20</td><td>22</td></tr>
+            <tr><td>City 3</td><td>25</td><td>24</td><td>26</td><td>27</td><td>28</td></tr>
+            <tr><td>City 4</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+            <tr><td>City 5</td><td>30</td><td>32</td><td>33</td><td>31</td><td>35</td></tr>
+          </tbody>
+    </table>
 
-    <footer>
-        <p>Khaliun Tamir EU2XJ4, Enkhjee Gantulga CPY45Q</p>
-    </footer>
+
+    <canvas id="lineChart" width="400" height="200"></canvas>
+  </main>
+
+  <footer>
+    <p>Khaliun Tamir (EU2XJ4), Enkhjee Gantulga (CPY45Q)</p>
+  </footer>
+
+  <script>
+    const table = document.getElementById("numberTable");
+    const ctx = document.getElementById("lineChart").getContext("2d");
+
+    let chart;
+
+    function renderChart(data, city) {
+  if (chart) chart.destroy();
+
+  chart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      datasets: [{
+        label: city + " Temperature Data",
+        data: data,
+        fill: false,
+        tension: 0.2
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+
+    Array.from(table.getElementsByTagName("tr")).forEach((row, index) => {
+      if (index === 0) return; 
+
+      row.addEventListener("click", () => {
+        const cells = Array.from(row.getElementsByTagName("td")).slice(1); 
+        const values = cells.map(td => parseFloat(td.innerText));
+        const cityName = row.getElementsByTagName("td")[0].innerText;
+        renderChart(values, cityName);
+
+        renderChart(values);
+      });
+    });
+  </script>
 </body>
 </html>

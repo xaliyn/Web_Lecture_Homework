@@ -121,6 +121,48 @@ input, textarea, select {
     margin: 10px;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fffafd;
+    box-shadow: 0 2px 8px rgba(255, 182, 193, 0.3);
+    border: 2px solid #ffc0cb;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ffc0cb;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #ffb6c1;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #fff0f6;
+  }
+  
+  tr:hover {
+    background-color: #ffe0ec;
+  }
+  
+ 
+  canvas#lineChart {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fffafd;
+    border-radius: 15px;
+    border: 2px dashed #ff69b4;
+    box-shadow: 0 0 8px rgba(255, 182, 193, 0.4);
+    max-width: 100%;
+  }
+  
 
 
-/* test */
