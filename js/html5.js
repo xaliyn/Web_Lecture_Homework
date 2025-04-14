@@ -1,4 +1,4 @@
-// Web Storage
+
 if (localStorage.hits) {
     localStorage.hits = Number(localStorage.hits) + 1;
   } else {
@@ -13,7 +13,6 @@ if (localStorage.hits) {
       }
       
   
-  // Web Worker
   function bigLoop() {
     if (typeof(Worker) !== "undefined") {
       const worker = new Worker("js/bigLoop.js");
@@ -29,13 +28,11 @@ if (localStorage.hits) {
     alert("Hello...");
   }
   
-  // Simulate SSE
   function simulateSSE() {
     let time = new Date().toLocaleTimeString();
     document.getElementById("sseResult").innerHTML += `Message: ${time}<br>`;
   }
-  
-  // Geolocation
+
   function getLocation() {
     const x = document.getElementById("geoResult");
     if (navigator.geolocation) {
@@ -51,8 +48,7 @@ if (localStorage.hits) {
       "Latitude: " + position.coords.latitude +
       "<br>Longitude: " + position.coords.longitude;
   }
-  
-  // Drag and Drop
+
   function allowDrop(ev) {
     ev.preventDefault();
   }

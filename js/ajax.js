@@ -1,9 +1,8 @@
-// REUSABLE FUNCTION: create request object
+
 function getRequest() {
     return new XMLHttpRequest();
   }
   
-  // READ
   function readData() {
     const code = document.getElementById("code").value.trim();
     if (!code) return alert("Please enter your code.");
@@ -38,7 +37,7 @@ function getRequest() {
     xhr.send(`op=read&code=${code}`);
   }
   
-  // CREATE
+
   function createData() {
     const name = document.getElementById("createName").value.trim();
     const height = document.getElementById("createHeight").value.trim();
@@ -67,7 +66,7 @@ function getRequest() {
     xhr.send(postData);
   }
   
-  // UPDATE: LOAD EXISTING DATA
+
   function getDataForId() {
     const code = document.getElementById("updateCode").value.trim();
     const id = document.getElementById("updateId").value.trim();
@@ -93,7 +92,6 @@ function getRequest() {
     xhr.send(`op=read&code=${code}`);
   }
   
-  // UPDATE: SUBMIT NEW VALUES
   function updateData() {
     const id = document.getElementById("updateId").value.trim();
     const name = document.getElementById("updateName").value.trim();

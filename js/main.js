@@ -61,7 +61,7 @@ function editRow(index) {
   document.getElementById('email').value = item.email;
   document.getElementById('city').value = item.city;
 
-  tableData.splice(index, 1); // remove old entry so update acts like "edit"
+  tableData.splice(index, 1); 
   renderTable();
 }
 

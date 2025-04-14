@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web-programming-1 Lecture Homework</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>React SPA</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Web-programming-1 Lecture Homework</h1>
-    </header>
+  <header>
+    <h1>Web-programming-1 Lecture Homework</h1>
+  </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="introduction.html">Introduction</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="table.html">Table</a></li>
-            <li><a href="html5.html">HTML5</a></li>
-            <li><a href="chart.html">Chart</a></li>
-            <li><a href="ajax.html">AJAX</a></li>
-            <li><a href="oojs.html">OOJS</a></li>
-            <li><a href="react.html" class="active">React</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="react.html" class="active">React</a></li>
+    </ul>
+  </nav>
 
-    <aside>
-        <h2>React</h2>
-    </aside>
+  <main class="content">
+    <h2>React Single Page Application</h2>
+    <button onclick="showApp('calculator')">Calculator</button>
+    <button onclick="showApp('tictactoe')">Tic-Tac-Toe</button>
 
-    <div class="content">
-        <h2>Welcome to the React Page</h2>
-        <p>This web page is for Web Programming Lecture homework.</p>
-        <p>As you can see, you are on the React page.</p>
+    <div id="app1" style="display:none;">
+      <div id="calculator-root"></div>
     </div>
+    <div id="app2" style="display:none;">
+      <div id="tictactoe-root"></div>
+    </div>
+  </main>
 
-    <footer>
-        <p>Khaliun Tamir EU2XJ4, Enkhjee Gantulga CPY45Q</p>
-    </footer>
+  <footer>
+    <p>Khaliun Tamir (EU2XJ4) Enkhjee Gantulga (CPY45Q)</p>
+  </footer>
+
+  <script type="text/babel" src="../react/app1-calculator/app1.js"></script>
+  <script type="text/babel" src="../react/app2-tictactoe/app2.js"></script>
+
+  <script>
+    function showApp(app) {
+      document.getElementById("app1").style.display = app === "calculator" ? "block" : "none";
+      document.getElementById("app2").style.display = app === "tictactoe" ? "block" : "none";
+    }
+    window.onload = () => showApp("calculator");
+  </script>
 </body>
 </html>
